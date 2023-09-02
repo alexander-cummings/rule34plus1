@@ -7,6 +7,6 @@ it's still in development so it only works for "POSTS" tab of the rule34 website
 # How To Use:
 
 just download and extract the ZIP files from https://github.com/rule34plus1/rule34plus1/releases/tag/beta_release
-then enable developer mode of chrome
-click "load unpack" in chrome extensions and select the "rule34pus1" FOLDER.
-and Done.
+then enable developer mode of chrome extensions
+click "load unpacked" in chrome extensions and select the "rule34pus1" FOLDER.
+and Done. enjoy!
