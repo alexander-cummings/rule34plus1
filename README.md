@@ -3,6 +3,8 @@
 this will add both "NEXT" and "BACK" button for rule34 website.
 it's still in development so it only works for "POSTS" tab of the rule34 website and also it's expected to have some bugs
 
+![example1](https://github.com/rule34plus1/rule34plus1/assets/143880847/b25f605e-00b2-45aa-a181-bce9e25bcaab)
+
 
 # How To Use:
 
