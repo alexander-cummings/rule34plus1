@@ -4,8 +4,7 @@ this will add both **"NEXT"** and **"BACK"** button for rule34 website meaning y
 
 it's still in development so it only works for **"POSTS" tab** the rule34 website and so it's expected to have some bugs
 
-![example1](https://github.com/rule34plus1/rule34plus1/assets/143880847/b25f605e-00b2-45aa-a181-bce9e25bcaab)
-
+![preview](https://github.com/rule34plus1/rule34plus1/assets/143880847/e98c9459-7a38-4981-943d-e15080f7a0e1)
 
 # How To Use:
 
