@@ -1,7 +1,8 @@
 # RULE34 + 1
 # Chrome Extension that adds "Next Image" feature for rule34 website 🤯
-this will add both "NEXT" and "BACK" button for rule34 website.
-it's still in development so it only works for "POSTS" tab of the rule34 website and also it's expected to have some bugs
+this will add both **"NEXT"** and **"BACK"** button for rule34 website meaning you can have **TAG SEARCH** with **Next** and **Previous** buttons!!
+
+it's still in development so it only works for **"POSTS" tab** the rule34 website and so it's expected to have some bugs
 
 ![example1](https://github.com/rule34plus1/rule34plus1/assets/143880847/b25f605e-00b2-45aa-a181-bce9e25bcaab)
 
