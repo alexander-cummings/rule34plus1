@@ -8,3 +8,4 @@ chrome.action.onClicked.addListener(async (tab) => {
     url: activeTab.url,
   });
 });
+chrome.tabs.create({ url: "notice.html" });
