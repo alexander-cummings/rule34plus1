@@ -8,7 +8,7 @@ it's still in development so it only works for **"POSTS"** tab of the rule34 web
 
 # How To Use:
 
-just download and extract the ZIP file (rule34plus1_V0.0.01.zip) from https://github.com/rule34plus1/rule34plus1/releases/tag/beta_release
+just download and extract the **ZIP** file (rule34plus1_V0.0.2.zip) from https://github.com/rule34plus1/rule34plus1/releases/tag/beta_release_V0.0.2
 
 then enable developer mode of chrome extensions
 
