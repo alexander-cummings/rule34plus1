@@ -1,57 +1,76 @@
-let arr = [];
-let link = document.location.href;
+const link = document.location.href;
 
-try {
-  if (
-    (link.indexOf("id=") == -1 ||
-      link.indexOf("id=") == "-1" ||
-      link.indexOf("pid=") != -1 ||
-      link.indexOf("pid=") != "-1") &&
-    (link.indexOf("page=post") != -1 || link.indexOf("page=post") != "-1")
-  ) {
-    pic = document.getElementsByClassName("thumb");
-    for (let i = 0; i < pic.length; i++) {
-      arr[i] = pic.item(i).id;
+function storeImagesOrAddNavigation() {
+    if(link.indexOf("page=post") >= 0 && link.indexOf("s=list") >= 0) {
+        const images = document.getElementsByClassName("thumb");
+
+        if (images.length === 0) {
+            return;
+        }
+
+        const firstImageId = images.item(0).id.slice(1);
+
+        let previousImageId = images.item(-1).id.slice(1);
+        let currentImageId = firstImageId;
+        let nextImageId;
+        for(let i = 1; i < images.length; ++i) {
+            nextImageId = images.item(i).id.slice(1);
+            chrome.storage.local.set({
+                [currentImageId]: {
+                    previous: previousImageId,
+                    next: nextImageId,
+                }
+            });
+
+            previousImageId = currentImageId;
+            currentImageId = nextImageId;
+        }
+
+        chrome.storage.local.set({
+            [nextImageId]: {
+                previous: currentImageId,
+                next: firstImageId,
+            }
+        });
     }
-    chrome.storage.local.set({ key: arr, link: link }).then(() => {
-      console.log("Value is set");
-    });
-    chrome.storage.local.set({ link: link }).then(() => {
-      console.log("Value is set");
-    });
-  } else {
-    chrome.storage.local.get(["key"]).then((result) => {
-      arr = result.key;
+    else if(link.indexOf("id=") >= 0) {
+        const urlParams = new URLSearchParams(link);
+        const imageId = urlParams.get("id");
 
-      let pic_id = link.slice(link.indexOf("id=") + 3);
-      let pic_index = arr.indexOf("s" + pic_id);
+        chrome.storage.local.get([imageId]).then((result) => {
+            const navigationInfo = result[imageId];
 
-      console.log(arr);
-      const content = document.getElementsByClassName("flexi")[0];
-      // if (content === undefined)
-      //   content = document.getElementById("fit-to-screen");
+            const content = document.querySelector("div.flexi > div");
 
-      const next = document.createElement("a");
-      next.innerHTML = " Next ";
-      pic_index + 1 >= arr.length
-        ? (next.href = "#")
-        : (next.href =
-            "https://rule34.xxx/index.php?page=post&s=view&id=" +
-            arr[pic_index + 1].substring(1));
+            const previous = document.createElement("a");
+            previous.innerHTML = "Previous";
+            previous.href = "https://rule34.xxx/index.php?page=post&s=view&id="
+                + navigationInfo.previous;
 
-      const back = document.createElement("a");
-      back.innerHTML = " Back ";
-      pic_index > 0
-        ? (back.href =
-            "https://rule34.xxx/index.php?page=post&s=view&id=" +
-            arr[pic_index - 1].substring(1))
-        : (back.href = "#");
-      next.style.padding = "5px";
-      back.style.padding = "5px";
-      content.appendChild(back);
-      content.appendChild(next);
-    });
-  }
-} catch (err) {
-  console.log(`something went wrong ${err}`);
+            const next = document.createElement("a");
+            next.innerHTML = "Next";
+            next.href = "https://rule34.xxx/index.php?page=post&s=view&id="
+                + navigationInfo.next;
+
+            const previousNextSeparator = document.createTextNode(" | ");
+            const previousNextContainer = document.createElement("h4");
+
+            previousNextContainer.appendChild(previous);
+            previousNextContainer.appendChild(previousNextSeparator);
+            previousNextContainer.appendChild(next);
+
+            content.appendChild(previousNextContainer);
+
+            document.addEventListener("keydown", event => {
+                if(event.key === "ArrowRight") {
+                    window.location.href = next.href;
+                }
+                else if(event.key === "ArrowLeft") {
+                    window.location.href = previous.href;
+                }
+            });
+        });
+    }
 }
+
+storeImagesOrAddNavigation();
