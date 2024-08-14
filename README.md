@@ -2,7 +2,7 @@
 
 ## What it does:
 
-This Chromium extension adds the next and previous buttons to the rule34 website. As it stands, this extension gathers images from only the current page of any post list page and provides "previous" and "next" buttons based on the ordering on that page.
+This Chromium extension adds the next and previous buttons to the rule34 website. As it stands, this extension gathers images from only the current page of any post list page and provides "previous" and "next" buttons based on the ordering on that page in the form of a circular queue (last image on page links to first image).
 
 ## How To Use:
 
