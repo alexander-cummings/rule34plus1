@@ -2,19 +2,19 @@ const link = document.location.href;
 
 function storeImagesOrAddNavigation() {
     if(link.indexOf("page=post") >= 0 && link.indexOf("s=list") >= 0) {
-        const images = document.getElementsByClassName("thumb");
+        const images = Array.from(document.getElementsByClassName("thumb"));
 
         if (images.length === 0) {
             return;
         }
 
-        const firstImageId = images.item(0).id.slice(1);
+        const firstImageId = images.at(0).id.slice(1);
 
-        let previousImageId = images.item(-1).id.slice(1);
+        let previousImageId = images.at(-1).id.slice(1);
         let currentImageId = firstImageId;
         let nextImageId;
         for(let i = 1; i < images.length; ++i) {
-            nextImageId = images.item(i).id.slice(1);
+            nextImageId = images.at(i).id.slice(1);
             chrome.storage.local.set({
                 [currentImageId]: {
                     previous: previousImageId,
