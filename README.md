@@ -1,17 +1,15 @@
-# RULE34 + 1
-# Chrome Extension that adds "Next Image" feature for rule34 website 🤯
-this will add both **"NEXT"** and **"BACK"** button for rule34 website meaning you can have **TAG SEARCH** with **Next** and **Previous** buttons!!
+# Rule34 + 1
 
-it's still in development so it only works for **"POSTS"** tab of the rule34 website and so it's expected to have some bugs
+## What it does:
 
-![preview](https://github.com/rule34plus1/rule34plus1/assets/143880847/e98c9459-7a38-4981-943d-e15080f7a0e1)
+This Chromium extension adds the next and previous buttons to the rule34 website. As it stands, this extension gathers images from only the current page of any post list page and provides "previous" and "next" buttons based on the ordering on that page.
 
-# How To Use:
+![Rule34 + 1 Preview](demo.gif)
 
-just download and extract the **ZIP** file (rule34plus1_V0.0.2.zip) from https://github.com/rule34plus1/rule34plus1/releases/tag/beta_release_V0.0.2
+## How To Use:
 
-then enable developer mode of chrome extensions
-
-click "load unpacked" in chrome extensions and select the "rule34pus1" FOLDER.
-
-and Done. enjoy!
+1. Download and extract the latest zip file from the [releases](/releases) tab.
+2. Go to your Chromium browser extensions page (e.g. [chrome://extensions], [brave://extensions], [opera://extensions]).
+3. Enable the developer mode toggle.
+4. Click the "Load unpacked" button, and select the folder you extracted from the zip file in step 1.
+5. Enjoy!
