@@ -8,7 +8,6 @@ function storeImagesOrAddNavigation() {
 
     if(urlParams.get("s") === "list") {
         const images = Array.from(document.getElementsByClassName("thumb"));
-
         if (images.length === 0) {
             return;
         }
@@ -32,8 +31,8 @@ function storeImagesOrAddNavigation() {
         }
 
         chrome.storage.local.set({
-            [nextImageId]: {
-                previous: currentImageId,
+            [currentImageId]: {
+                previous: previousImageId,
                 next: firstImageId,
             }
         });
