@@ -1,7 +1,12 @@
-const link = document.location.href;
-
 function storeImagesOrAddNavigation() {
-    if(link.indexOf("page=post") >= 0 && link.indexOf("s=list") >= 0) {
+    const query = window.location.search;
+    const urlParams = new URLSearchParams(query);
+
+    if(urlParams.get("page") !== "post") {
+        return;
+    }
+
+    if(urlParams.get("s") === "list") {
         const images = Array.from(document.getElementsByClassName("thumb"));
 
         if (images.length === 0) {
@@ -33,8 +38,7 @@ function storeImagesOrAddNavigation() {
             }
         });
     }
-    else if(link.indexOf("id=") >= 0) {
-        const urlParams = new URLSearchParams(link);
+    else if(urlParams.get("s") === "view" && urlParams.has("id")) {
         const imageId = urlParams.get("id");
 
         chrome.storage.local.get([imageId]).then((result) => {
